@@ -1,8 +1,8 @@
 module Main where
 
-import qualified MyLib (someFunc)
+import Options.Applicative (execParser)
+
+import LDH.CLI.Command (options, runCommand)
 
 main :: IO ()
-main = do
-  putStrLn "Hello, Haskell!"
-  MyLib.someFunc
+main = execParser options >>= runCommand
