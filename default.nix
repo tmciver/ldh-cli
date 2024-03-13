@@ -1,5 +1,5 @@
 let
-  pkgs = import <nixpkgs> { }; # pin the channel to ensure reproducibility!
+  pkgs = import ./nixpkgs-pinned.nix;
 in
 pkgs.haskellPackages.developPackage {
   root = ./.;

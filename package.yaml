@@ -1,0 +1,45 @@
+name:                ldh-cli
+version:             0.1.0.0
+github:              "tmciver/ldh-cli"
+license:             BSD3
+author:              "Tim McIver"
+maintainer:          "tim@timmciver.com"
+copyright:           "2018 Tim McIver"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: A command line client for Linked Data Hub in Haskell.
+
+dependencies:
+- base
+
+library:
+  source-dirs: lib
+  ghc-options:
+  - -Wall
+  dependencies:
+  - protolude
+  - optparse-applicative
+
+executables:
+  ldh-cli:
+    main:                Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
+    dependencies:
+    - ldh-cli
+    - protolude
+    - directory
+    - optparse-applicative
